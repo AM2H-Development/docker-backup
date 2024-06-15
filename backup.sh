@@ -1,9 +1,9 @@
 #!/bin/bash
-echo USAGE: ./backup.sh [CONTAINER] [VOLUME], e.g. ./backup.sh Grafana grafana-prod_grafana_data
-echo $1 $2
+echo USAGE: ./backup.sh [PATH_TO_COMPOSE.YML] [VOLUME] [ADD_PARAMS], e.g. ./backup.sh Grafana grafana-prod_grafana_data "--env-file ../.env"
+echo $1 $2 $3
 CURPATH=$(pwd)
 
-cd ../$1
+cd $1
 echo switching from $CURPATH to $(pwd) and shuting down container $1
 docker compose down
 
