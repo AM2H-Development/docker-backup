@@ -1,5 +1,6 @@
 #!/bin/bash
-echo $1 $2 $3
+echo USAGE: ./backup.sh [CONTAINER] [VOLUME], e.g. ./backup.sh Grafana grafana-prod_grafana_data
+echo $1 $2
 CURPATH=$(pwd)
 
 cd ../$1
