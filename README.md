@@ -6,4 +6,5 @@
 * chmod u+x backup.sh
 
 ##
-* ./backup.sh
+* ./backup.sh [PATH_TO_COMPOSE.YML] [VOLUME] [[ADDITIONAL_PARAMETERS_FOR_DOCKER_COMPOSE]]
+* Additional parameter can be e.g. "--env-file ../.env"
