@@ -15,7 +15,7 @@ docker run --rm \
       -v "$2":/backup-volume \
       -v "$CURPATH":/backup \
       busybox \
-      tar -zcvf /backup/backup/$1_$(date '+%Y-%m-%d_%H:%M:%S').tar.gz /backup-volume
+      tar -zcvf /backup/backup/$2_$(date '+%Y-%m-%d_%H:%M:%S').tar.gz /backup-volume
 
 echo starting up container $1
 docker compose up -d
