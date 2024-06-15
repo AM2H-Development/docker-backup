@@ -1,5 +1,8 @@
 #!/bin/bash
-echo USAGE: ./backup.sh [PATH_TO_COMPOSE.YML] [VOLUME] [ADD_PARAMS], e.g. ./backup.sh Grafana grafana-prod_grafana_data "--env-file ../.env"
+if [ $# -eq 0 ]; then
+    >&2 echo USAGE: ./backup.sh [PATH_TO_COMPOSE.YML] [VOLUME] [ADD_PARAMS], e.g. ./backup.sh Grafana grafana-prod_grafana_data "--env-file ../.env"
+    exit 1
+fi
 echo $1 $2 $3
 CURPATH=$(pwd)
 
