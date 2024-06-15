@@ -1,13 +1,17 @@
 #!/bin/bash
-PATH=$(pwd)
+echo $1 $2 $3
+CURPATH=$(pwd)
 
 cd ../$1
+echo switching from $CURPATH to $(pwd) and shuting down container $1
 docker compose down
-echo "down"
+
+echo running backup
 docker run --rm \
       -v "$2":/backup-volume \
-      -v "$PATH":/backup \
+      -v "$CURPATH":/backup \
       busybox \
-      tar -zcvf /backup/$(date +%F_%T).tar.gz /backup-volume
+      tar -zcvf /backup/backup/$1_$(date '+%Y-%m-%d_%H:%M:%S').tar.gz /backup-volume
 
+echo starting up container $1
 docker compose up -d
